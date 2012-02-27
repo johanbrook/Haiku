@@ -5,7 +5,7 @@ public class HaikuModel {
 	/**
 	 * Score max: 20 pt
 	 */
-	public int haikuScore(String line1, String line2, String line3){
+	public static int haikuScore(String line1, String line2, String line3){
 		int score = 0;
 		
 		if(crit1(line1+line2+line3))
