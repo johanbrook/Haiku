@@ -1,0 +1,7 @@
+This project includes a core module which evaluates three input strings as lines in a possible haiku poem. 
+The evaluation means giving the candidate a score based on a few criteria, mostly regarding technical style
+instead of imagery.
+
+There is also a small, stripped down java swing frontend to try it out.
+
+Project goal is set at porting it to Android and iOS.
