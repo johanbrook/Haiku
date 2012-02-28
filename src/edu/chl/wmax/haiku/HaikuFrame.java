@@ -2,16 +2,10 @@ package edu.chl.wmax.haiku;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import javax.swing.JTextField;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.JButton;
 
@@ -44,7 +38,7 @@ public class HaikuFrame extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public HaikuFrame() {
-		setTitle("Haiku Calculator");
+		setTitle("Är det en Haiku?");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 320, 213);
 		contentPane = new JPanel();
@@ -57,7 +51,7 @@ public class HaikuFrame extends JFrame implements ActionListener{
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		JLabel scoreText = new JLabel("Score:");
+		JLabel scoreText = new JLabel("Poäng:");
 		GridBagConstraints gbc_scoreText = new GridBagConstraints();
 		gbc_scoreText.insets = new Insets(0, 0, 5, 5);
 		gbc_scoreText.gridx = 2;
@@ -101,7 +95,7 @@ public class HaikuFrame extends JFrame implements ActionListener{
 		gbc_textField.gridy = 4;
 		contentPane.add(line3Field, gbc_textField);
 		
-		JButton btnCalculate = new JButton("Calculate");
+		JButton btnCalculate = new JButton("Räkna");
 		btnCalculate.addActionListener(this);
 		GridBagConstraints gbc_btnCalculate = new GridBagConstraints();
 		gbc_btnCalculate.gridwidth = 2;

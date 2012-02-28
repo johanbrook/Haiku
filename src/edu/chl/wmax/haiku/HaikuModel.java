@@ -67,7 +67,7 @@ public class HaikuModel {
 	
 	private static int vowelCount(String str) {
 		int count = 0;
-		String vowels = "AEIOUYÅÄÖÜaeiouyåäö";
+		String vowels = "AEÉÈIOUYÅÄÖÜaeéèiouyåäü";
 
 		for (int i = 0; i < str.length(); i++) {
 			if (vowels.contains(str.substring(i, i + 1))) {
