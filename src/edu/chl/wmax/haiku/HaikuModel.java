@@ -1,32 +1,33 @@
 package edu.chl.wmax.haiku;
 
 public class HaikuModel {
-	
+
 	/**
 	 * Score max: 20 pt
 	 */
-	public static int haikuScore(String line1, String line2, String line3){
+	public static int haikuScore(String line1, String line2, String line3) {
 		int score = 0;
-		
-		if(crit1(line1+line2+line3))
+
+		if (crit1(line1 + line2 + line3))
 			score += 8;
-		
-		if(crit2(line1, line3))
+
+		if (crit2(line1, line3))
 			score += 4;
-		
-		if(crit3(line1, line2))
+
+		if (crit3(line1, line2))
 			score += 3;
-		
-		if(crit3(line3, line2))
+
+		if (crit3(line3, line2))
 			score += 3;
-		
-		if(crit5(line1+line2+line3))
-			score += 2;
-		
-		return score;		
+
+		if (crit5(line1 + line2 + line3))
+			score += 1;
+		if (crit6(line1, line2, line3))
+			score += 1;
+
+		return score;
 	}
-	
-	
+
 	/**
 	 * Criteria 1: Has 17 vowels Score: 40%
 	 */
@@ -52,19 +53,34 @@ public class HaikuModel {
 	}
 
 	/**
-	 * Criteria 5: Emphatic punctuation between 1 and 2 Score 10%
+	 * Criteria 5: Emphatic total punctuation between 1 and 3 Score 5%
 	 */
 	private static boolean crit5(String str) {
-		String special = ".-!";
+		int count = punctCount(str);
+
+		return (count <= 3 && count >= 1);
+	}
+
+	/**
+	 * Criteria 6: punctuation per row is max 1
+	 */
+	private static boolean crit6(String line1, String line2, String line3) {
+
+		return punctCount(line1) <= 1 && punctCount(line2) <= 1
+				&& punctCount(line3) <= 1;
+	}
+
+	private static int punctCount(String str) {
+		String special = ".-!?";
 		int count = 0;
 		for (int i = 0; i < str.length(); i++) {
-			if(special.contains(str.substring(i, i+1))){
+			if (special.contains(str.substring(i, i + 1))) {
 				count++;
 			}
 		}
-		return (count <=2 && count >=1);
+		return count;
 	}
-	
+
 	private static int vowelCount(String str) {
 		int count = 0;
 		String vowels = "AEÉÈIOUYÅÄÖÜaeéèiouyåäü";
